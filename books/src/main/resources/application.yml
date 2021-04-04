@@ -1,0 +1,9 @@
+spring:
+  jpa:
+    database: mysql
+    show-sql: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/softbrain
+    username: softbrain
+    password: 2021Softbrain
+    driver-class-name: com.mysql.jdbc.Driver
