@@ -6,10 +6,16 @@ import org.springframework.http.HttpStatus;
  * Enum to define all system message
  */
 public enum AppMessageEnum {
-    SAVED_BOOK_SUCCESS(HttpStatus.OK.value(), "Saved Book is success"),
+    // Message to handle proceed database
+    SAVED_BOOK_SUCCESS(HttpStatus.CREATED.value(), "Added Book is success"),
     FIND_BOOK_BY_ID_SUCCEED(HttpStatus.OK.value(), "Finding book is success"),
     UPDATED_BOOK_SUCCESS(HttpStatus.OK.value(), "Updated book is success"),
-    FIND_ALL_BOOK_SUCCESS(HttpStatus.OK.value(), "Found book is success");
+    FIND_ALL_BOOK_SUCCESS(HttpStatus.OK.value(), "Found book is success"),
+    SAVED_AUTHOR_SUCCESS(HttpStatus.CREATED.value(), "Added author is success"),
+    FIND_AUTHOR_BY_ID_SUCCESS(HttpStatus.OK.value(), "Finding author is success"),
+    UPDATED_AUTHOR_SUCCESS(HttpStatus.OK.value(), "Updated author is success"),
+    FIND_ALL_AUTHOR_SUCCESS(HttpStatus.OK.value(), "Found author is success");
+
     private int code;
     private String message;
     AppMessageEnum(final int code, final String message) {
