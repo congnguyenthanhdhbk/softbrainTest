@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*;
  * Book resource by using restfull service
  */
 @RestController
-@RequestMapping(name = "api/v1")
+@RequestMapping(value = "api/v1")
 public interface BookApi {
     /**
      * Expose API to add new Book
      * @param bookDto BookDto
      * @return Object of Book
      */
-    @PostMapping(name = "/book")
+    @PostMapping(value = "/book")
     AppResponse<Book> addBook(@RequestBody final BookDto bookDto);
 
     /**
@@ -28,7 +28,7 @@ public interface BookApi {
      * @param pageNumber Integer
      * @return List of book using paginate
      */
-    @GetMapping(name = "/books")
+    @GetMapping(value = "/books")
     AppResponse<Page<Book>> findAllBook(@RequestParam(name = "pageSize", required = false) final Integer pageSize,
                                         @RequestParam(name = "pageNumber", required = false) final Integer pageNumber);
 
@@ -38,7 +38,7 @@ public interface BookApi {
      * @param bookDto BookDto
      * @return Status of updating
      */
-    @PutMapping(name = "/book/{bookId}")
+    @PutMapping(value = "/book/{bookId}")
     AppResponse<Boolean> updateBook(
             @PathVariable(name = "bookId", required = true) final Integer bookId,
             @RequestBody final BookDto bookDto);
@@ -48,7 +48,7 @@ public interface BookApi {
      * @param bookId Integer
      * @return Object of the book
      */
-    @GetMapping(name = "/book/{bookId}")
+    @GetMapping(value = "/book/{bookId}")
     AppResponse<Book> findBookById(@PathVariable(name = "bookId") final Integer bookId);
 
     /**
@@ -56,6 +56,6 @@ public interface BookApi {
      * @param bookId Integer
      * @return status of deleting
      */
-    @DeleteMapping(name = "/book/{bookId}")
+    @DeleteMapping(value = "/book/{bookId}")
     AppResponse<Boolean> deleteBook(@PathVariable(name = "bookId") final Integer bookId);
 }

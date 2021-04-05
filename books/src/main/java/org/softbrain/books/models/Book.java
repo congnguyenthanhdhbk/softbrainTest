@@ -11,7 +11,7 @@ import java.util.Set;
 @Table(name = "book")
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
     @Column(name = "isbn")
@@ -24,7 +24,7 @@ public class Book {
     private String status;
     @Column(name = "is_deleted")
     private Boolean isDeleted = false;
-    @ManyToMany(mappedBy = "books")
+    @ManyToMany(mappedBy = "books", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<Author> authors = new HashSet<>();
 
     public Book(String isbn,

@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.*;
  * Class to expose api of Author
  */
 @RestController
-@RequestMapping(name = "api/v1")
+@RequestMapping(value = "api/v1")
 public interface AuthorApi {
     /**
      * Expose API to add new author
      * @param authorDto AuthorDto
      * @return AppResponse of author
      */
-    @PostMapping(name = "/author")
+    @PostMapping(value = "/author")
     AppResponse<Author> addAuthor(@RequestBody final AuthorDto authorDto);
 
     /**
@@ -26,7 +26,7 @@ public interface AuthorApi {
      * @param pageNumber Integer
      * @return List all Author
      */
-    @GetMapping(name = "/author")
+    @GetMapping(value = "/authors")
     AppResponse<Page<Author>> findAllAuthor(@RequestParam(name = "pageSize", required = false) final Integer pageSize,
                                         @RequestParam(name = "pageNumber", required = false) final Integer pageNumber);
 
@@ -36,7 +36,7 @@ public interface AuthorApi {
      * @param authorDto AuthorDto
      * @return Status of updating author
      */
-    @PutMapping(name = "/author/{authorId}")
+    @PutMapping(value = "/author/{authorId}")
     AppResponse<Boolean> updateAuthor(
             @PathVariable(name = "authorId") final Integer authorId,
             @RequestBody final AuthorDto authorDto);
@@ -46,7 +46,7 @@ public interface AuthorApi {
      * @param authorId Integer
      * @return Object of author
      */
-    @GetMapping(name = "/author/{authorId}")
+    @GetMapping(value = "/author/{authorId}")
     AppResponse<Author> findAuthorById(@PathVariable(name = "authorId") final Integer authorId);
 
     /**
@@ -54,6 +54,6 @@ public interface AuthorApi {
      * @param authorId Integer
      * @return Status of deleting
      */
-    @DeleteMapping(name = "/author/{authorId}")
+    @DeleteMapping(value = "/author/{authorId}")
     AppResponse<Boolean> deleteAuthor(@PathVariable(name = "authorId") final Integer authorId);
 }

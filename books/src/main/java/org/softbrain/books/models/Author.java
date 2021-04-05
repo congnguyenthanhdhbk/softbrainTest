@@ -10,7 +10,7 @@ import java.util.Set;
 public class Author {
     @Column(name = "id")
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "fullName")
     private String fullName;
@@ -20,7 +20,7 @@ public class Author {
     private String description;
     @Column(name = "is_deleted")
     private Boolean isDeleted = false;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(name = "author_book",
             joinColumns = @JoinColumn(name = "author_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id")
