@@ -95,6 +95,13 @@ public class AuthorApiImpl implements AuthorApi {
      */
     @Override
     public AppResponse<Boolean> deleteAuthor(Integer authorId) {
-        return null;
+        try {
+            return this.authorService.deleteAuthor(authorId);
+        } catch (IllegalArgumentException e) {
+            return new AppResponse<>(
+                    HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                    e.getMessage(),
+                    false);
+        }
     }
 }

@@ -23,7 +23,7 @@ public class Book {
     @Column(name = "status")
     private String status;
     @Column(name = "is_deleted")
-    private Boolean isDeleted;
+    private Boolean isDeleted = false;
     @ManyToMany(mappedBy = "books")
     private Set<Author> authors = new HashSet<>();
 

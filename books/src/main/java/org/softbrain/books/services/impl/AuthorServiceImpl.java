@@ -16,6 +16,9 @@ import org.springframework.stereotype.Service;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * Class to support for proceed business of authors
+ */
 @Service
 public class AuthorServiceImpl implements AuthorService {
     private AuthorRepository authorRepository;
@@ -120,8 +123,8 @@ public class AuthorServiceImpl implements AuthorService {
         final Optional<Author> author = this.authorRepository.findById(authorId);
         if (author.isPresent()) {
             return new AppResponse<>(
-                    AppMessageEnum.UPDATED_BOOK_SUCCESS.getCode(),
-                    AppMessageEnum.UPDATED_BOOK_SUCCESS.getMessage(),
+                    AppMessageEnum.DELETE_AUTHOR_SUCCESS.getCode(),
+                    AppMessageEnum.DELETE_AUTHOR_SUCCESS.getMessage(),
                     true);
         }
         return new AppResponse<>(

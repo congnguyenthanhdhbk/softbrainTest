@@ -19,7 +19,7 @@ public class Author {
     @Column(name = "description")
     private String description;
     @Column(name = "is_deleted")
-    private Boolean isDeleted;
+    private Boolean isDeleted = false;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "author_book",
             joinColumns = @JoinColumn(name = "author_id"),
