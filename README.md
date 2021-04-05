@@ -83,3 +83,7 @@ BooksApplicationTests.java
 - POST /api/v1/author: add new book
 - PUT /api/v1/author: update book
 - DELETE /api/v1/author : Delete logical book
+
+## Run Postman
+In case of testing by using postman. Please get file softBrain.postman_collection.json in folder
+softbrainTest then import to postman and run each API in file.
