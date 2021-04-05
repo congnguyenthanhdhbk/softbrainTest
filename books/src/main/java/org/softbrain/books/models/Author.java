@@ -18,6 +18,8 @@ public class Author {
     private LocalDateTime dob;
     @Column(name = "description")
     private String description;
+    @Column(name = "is_deleted")
+    private Boolean isDeleted;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "author_book",
             joinColumns = @JoinColumn(name = "author_id"),
@@ -76,6 +78,14 @@ public class Author {
 
     public void setBooks(Set<Book> books) {
         this.books = books;
+    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
     }
 
     @Override

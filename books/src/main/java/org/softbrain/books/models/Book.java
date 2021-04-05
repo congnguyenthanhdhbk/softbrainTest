@@ -22,6 +22,8 @@ public class Book {
     private String publisher;
     @Column(name = "status")
     private String status;
+    @Column(name = "is_deleted")
+    private Boolean isDeleted;
     @ManyToMany(mappedBy = "books")
     private Set<Author> authors = new HashSet<>();
 
@@ -86,6 +88,14 @@ public class Book {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
     }
 
     @Override

@@ -109,4 +109,25 @@ public class AuthorServiceImpl implements AuthorService {
                 true
         );
     }
+
+    /**
+     * @see {@link AuthorService#deleteAuthor(Integer)}
+     * @param authorId Integer
+     * @return
+     */
+    @Override
+    public AppResponse<Boolean> deleteAuthor(Integer authorId) {
+        final Optional<Author> author = this.authorRepository.findById(authorId);
+        if (author.isPresent()) {
+            return new AppResponse<>(
+                    AppMessageEnum.UPDATED_BOOK_SUCCESS.getCode(),
+                    AppMessageEnum.UPDATED_BOOK_SUCCESS.getMessage(),
+                    true);
+        }
+        return new AppResponse<>(
+                AppMessageEnum.DELETE_AUTHOR_FAILED.getCode(),
+                AppMessageEnum.DELETE_AUTHOR_FAILED.getMessage(),
+                false
+        );
+    }
 }

@@ -14,6 +14,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class BookServiceImpl implements BookService {
     // Inject a repository to manipulate directly book table via JPA
@@ -103,5 +105,16 @@ public class BookServiceImpl implements BookService {
         return new AppResponse<Boolean>(
                 AppMessageEnum.UPDATED_BOOK_SUCCESS.getCode(),
                 AppMessageEnum.UPDATED_BOOK_SUCCESS.getMessage(), false);
+    }
+
+    /**
+     * @see {@link BookService#delete(Integer)}
+     * @param bookId Integer
+     * @return
+     */
+    @Override
+    public AppResponse<Boolean> delete(Integer bookId) {
+        final Optional<Book> book = this.bookRepository.findById(bookId);
+        return null;
     }
 }

@@ -14,7 +14,9 @@ public enum AppMessageEnum {
     SAVED_AUTHOR_SUCCESS(HttpStatus.CREATED.value(), "Added author is success"),
     FIND_AUTHOR_BY_ID_SUCCESS(HttpStatus.OK.value(), "Finding author is success"),
     UPDATED_AUTHOR_SUCCESS(HttpStatus.OK.value(), "Updated author is success"),
-    FIND_ALL_AUTHOR_SUCCESS(HttpStatus.OK.value(), "Found author is success");
+    FIND_ALL_AUTHOR_SUCCESS(HttpStatus.OK.value(), "Found author is success"),
+    DELETE_AUTHOR_SUCCESS(HttpStatus.OK.value(), "Author has been deleted successfully"),
+    DELETE_AUTHOR_FAILED(HttpStatus.NO_CONTENT.value(), "Author is not found");
 
     private int code;
     private String message;

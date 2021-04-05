@@ -40,4 +40,11 @@ public interface BookService {
      * @return state for updating false or true
      */
     AppResponse<Boolean> updateBook(final Integer bookId, final BookDto updatedBookDto);
+
+    /**
+     * Support for delete a book
+     * @param bookId Integer
+     * @return Boolean to notification that book has just deleted
+     */
+    AppResponse<Boolean> delete(final Integer bookId);
 }

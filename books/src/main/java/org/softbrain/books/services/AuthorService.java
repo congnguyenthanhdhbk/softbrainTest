@@ -32,10 +32,17 @@ public interface AuthorService {
     AppResponse<Author> findAuthorById(final Integer authorId);
 
     /**
-     * Service support for updating a author
+     * Service support for updating an author
      * @param authorId Integer
      * @param authorDto AuthorDto
      * @return state for updating false or true
      */
     AppResponse<Boolean> updateAuthor(final Integer authorId, final AuthorDto authorDto);
+
+    /**
+     * Service suport for deleting an author
+     * @param authorId Integer
+     * @return Status of deleting
+     */
+    AppResponse<Boolean> deleteAuthor(final Integer authorId);
 }
