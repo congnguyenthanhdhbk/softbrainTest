@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "c78417d0-ac60-44fc-bf4d-210a949feda0",
+		"name": "softBrain",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "addBook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isbn\": \"123324\",\r\n    \"title\": \"Mylife\",\r\n    \"publisher\": \"Education publisher\",\r\n    \"status\": \"INITIAL\",\r\n    \"authors\": [\r\n        {\r\n            \"fullName\": \"Victoria\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Dede\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Nana\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Mimi\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Wigo\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/book",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatedBook",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isbn\": \"NXBGD-123\",\r\n    \"title\": \"Nguyễn Thành Công\",\r\n    \"publisher\": \"Education publisher\",\r\n    \"status\": \"INITIAL\",\r\n    \"authors\": [\r\n        {\r\n            \"fullName\": \"Nguyễn Quang A\",\r\n            \"dob\": \"1937-12-31T17:00:00\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Nguyễn Quang B\",\r\n            \"dob\": \"1937-12-31T17:00:00\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Nguyễn Quang C\",\r\n            \"dob\": \"1937-12-31T17:00:00\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Nguyễn Quang D\",\r\n            \"dob\": \"1937-12-31T17:00:00\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Nguyễn Quang E\",\r\n            \"dob\": \"1937-12-31T17:00:00\",\r\n            \"description\": \"He is a famous\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/book/6",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"book",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteBook",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/book/5",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"book",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBookByID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isbn\": \"123324\",\r\n    \"title\": \"Mylife\",\r\n    \"publisher\": \"Education publisher\",\r\n    \"status\": \"INITIAL\",\r\n    \"authors\": [\r\n        {\r\n            \"fullName\": \"Victoria\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Dede\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Nana\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Mimi\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Wigo\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/book/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"book",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBooks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isbn\": \"123324\",\r\n    \"title\": \"Mylife\",\r\n    \"publisher\": \"Education publisher\",\r\n    \"status\": \"INITIAL\",\r\n    \"authors\": [\r\n        {\r\n            \"fullName\": \"Victoria\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Dede\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Nana\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Mimi\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        },\r\n                {\r\n            \"fullName\": \"Wigo\",\r\n            \"dob\": \"1938/01/01\",\r\n            \"description\": \"He is a famous\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/book/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"book",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

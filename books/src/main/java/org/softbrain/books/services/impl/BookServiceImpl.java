@@ -42,7 +42,8 @@ public class BookServiceImpl implements BookService {
     public AppResponse<Book> addBook(final BookDto book) {
         final Book convertedBook = this.bookConverter.convertToBook(book);
         final Book savedBook = this.bookRepository.save(convertedBook);
-        return new AppResponse<Book>(
+
+        return new AppResponse<>(
                 AppMessageEnum.SAVED_BOOK_SUCCESS.getCode(),
                 AppMessageEnum.SAVED_BOOK_SUCCESS.getMessage(),
                 savedBook);
@@ -71,11 +72,17 @@ public class BookServiceImpl implements BookService {
      */
     @Override
     public AppResponse<Book> findBookById(Integer bookId) {
+        final Book book = this.bookRepository.findBookByIdAndDeleted(bookId, false);
+        if (ObjectUtils.isNotEmpty(book)) {
+            return new AppResponse<>(
+                    AppMessageEnum.FIND_BOOK_BY_ID_SUCCEED.getCode(),
+                    AppMessageEnum.FIND_BOOK_BY_ID_SUCCEED.getMessage(),
+                    book);
+        }
         return new AppResponse<>(
-                AppMessageEnum.FIND_BOOK_BY_ID_SUCCEED.getCode(),
-                AppMessageEnum.FIND_BOOK_BY_ID_SUCCEED.getMessage(),
-                this.bookRepository.findById(bookId).get()
-        );
+                AppMessageEnum.FIND_BOOK_BY_ID_FAILED.getCode(),
+                AppMessageEnum.FIND_BOOK_BY_ID_FAILED.getMessage(),
+                null);
     }
 
     @Override
@@ -115,6 +122,17 @@ public class BookServiceImpl implements BookService {
     @Override
     public AppResponse<Boolean> delete(Integer bookId) {
         final Optional<Book> book = this.bookRepository.findById(bookId);
-        return null;
+        if (book.isPresent()) {
+            book.get().setDeleted(true);
+            this.bookRepository.save(book.get());
+            return new AppResponse<>(
+                    AppMessageEnum.DELETE_BOOK_SUCCESS.getCode(),
+                    AppMessageEnum.DELETE_AUTHOR_SUCCESS.getMessage(),
+                    true);
+        }
+        return new AppResponse<>(
+                AppMessageEnum.DELETE_BOOK_FAILED.getCode(),
+                AppMessageEnum.DELETE_BOOK_FAILED.getMessage(),
+                false);
     }
 }

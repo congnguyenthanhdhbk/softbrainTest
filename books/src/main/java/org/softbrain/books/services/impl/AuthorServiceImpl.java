@@ -79,7 +79,7 @@ public class AuthorServiceImpl implements AuthorService {
         return new AppResponse<>(
                 AppMessageEnum.FIND_AUTHOR_BY_ID_SUCCESS.getCode(),
                 AppMessageEnum.FIND_AUTHOR_BY_ID_SUCCESS.getMessage(),
-                this.authorRepository.findById(authorId).get()
+                this.authorRepository.findAuthorByIdAndAndDeleted(authorId, false)
         );
     }
 
@@ -122,6 +122,8 @@ public class AuthorServiceImpl implements AuthorService {
     public AppResponse<Boolean> deleteAuthor(Integer authorId) {
         final Optional<Author> author = this.authorRepository.findById(authorId);
         if (author.isPresent()) {
+            author.get().setDeleted(true);
+            this.authorRepository.save(author.get());
             return new AppResponse<>(
                     AppMessageEnum.DELETE_AUTHOR_SUCCESS.getCode(),
                     AppMessageEnum.DELETE_AUTHOR_SUCCESS.getMessage(),
